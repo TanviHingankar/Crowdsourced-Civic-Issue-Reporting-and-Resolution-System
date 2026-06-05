@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="User_UserMasterPage" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CivicConnect - User Panel</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            margin: 0;
+        }
+
+        /* App Container */
+      /* App Container */
+.app-wrapper {
+    max-width: 420px;
+    margin: 20px auto;
+    background: #ffffff;
+    min-height: 95vh;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+
+    display: flex;           /* Make wrapper a flex container */
+    flex-direction: column;  /* Stack header, content, bottom-nav */
+}
+
+/* Page Content */
+.app-content {
+    padding: 20px;
+    flex: 1 1 auto; /* Grow to fill space above bottom-nav */
+    overflow-y: auto; /* Scroll if content is too tall */
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    height: 70px;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+        /* Header */
+        .app-header {
+            background: linear-gradient(135deg, #1b266d, #3d5afe);
+            padding: 18px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Page Content */
+      
+      
+        .bottom-nav a {
+            text-decoration: none;
+            color: #888;
+            text-align: center;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .bottom-nav a i {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .bottom-nav a:hover {
+            color: #3d5afe;
+        }
+
+        .bottom-nav a.active {
+            color: #3d5afe;
+            font-weight: 600;
+        }
+
+        /* Floating Button */
+        .floating-btn {
+            position: absolute;
+            top: -25px;
+            background: linear-gradient(135deg, #00bcd4, #3d5afe);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        @media(max-width:480px){
+            .app-wrapper{
+                margin:0;
+                border-radius:0;
+                min-height:100vh;
+            }
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+<form id="form1" runat="server">
+
+<div class="app-wrapper">
+
+    <!-- Header -->
+   <%-- <div class="app-header">
+        CivicConnect User Panel
+    </div>--%>
+    <!-- Header -->
+<!-- Header -->
+<div class="app-header d-flex justify-content-between align-items-center p-2" style="position: relative; background:#3d5afe; color:white;">
+    <span style="font-weight:600; font-size:18px;">CivicConnect User Panel</span>
+
+    <!-- Logout icon -->
+    <a href="../Default.aspx" title="Logout" style="color:white; text-decoration:none; font-size:20px;">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+</div>
+
+
+    <!-- Dynamic Page Content -->
+    <div class="app-content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+
+        <a href="Default.aspx">
+            <i class="fas fa-home"></i>
+            Dashboard
+        </a>
+
+        <a href="ReportIssue.aspx">
+            <i class="fas fa-plus-circle"></i>
+            Report
+        </a>
+
+        <!-- Floating Button -->
+         <a href="EditProfile.aspx"s>
+            <i class="fas fa-plus-circle"></i>
+            EditProfile
+        </a>
+
+
+        <a href="TrackIssue.aspx">
+            <i class="fas fa-list"></i>
+            Issues
+        </a>
+
+        <a href="Feedback.aspx">
+            <i class="fas fa-star"></i>
+            Feedback
+        </a>
+         <%--    <a href="../Default.aspx">
+           <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </a>--%>
+
+    </div>
+
+</div>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
